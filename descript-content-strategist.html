@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Content Strategist at Descript | OpenJob</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-50: #faf5ff;
+      --purple-100: #f3e8ff;
+      --purple-200: #e9d5ff;
+      --purple-300: #d8b4fe;
+      --purple-400: #c084fc;
+      --purple-500: #a855f7;
+      --purple-600: #9333ea;
+      --purple-700: #7e22ce;
+      --purple-800: #6b21a8;
+      --purple-900: #581c87;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, var(--purple-50) 0%, #ffffff 40%, var(--purple-50) 100%);
+      color: var(--gray-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
+      color: white;
+      padding: 1.25rem 0;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .logo span {
+      background: rgba(255,255,255,0.2);
+      padding: 0.15rem 0.5rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .header-tag {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+
+    /* Main content */
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Job header card */
+    .job-header {
+      background: white;
+      border-radius: 16px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px rgba(147, 51, 234, 0.08);
+      border: 1px solid var(--purple-100);
+      margin-bottom: 1.75rem;
+    }
+
+    .company-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--purple-100);
+      color: var(--purple-800);
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    .job-title {
+      font-size: 1.85rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.75rem;
+      line-height: 1.25;
+    }
+
+    .job-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.25rem;
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .job-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .job-meta svg {
+      width: 16px;
+      height: 16px;
+      opacity: 0.7;
+    }
+
+    .salary-box {
+      background: linear-gradient(135deg, var(--purple-50), var(--purple-100));
+      border: 1px solid var(--purple-200);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      display: inline-block;
+    }
+
+    .salary-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--purple-700);
+      margin-bottom: 0.2rem;
+    }
+
+    .salary-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--purple-900);
+    }
+
+    /* Content sections */
+    .section {
+      background: white;
+      border-radius: 16px;
+      padding: 1.75rem 2rem;
+      box-shadow: 0 4px 24px rgba(147, 51, 234, 0.06);
+      border: 1px solid var(--purple-100);
+      margin-bottom: 1.5rem;
+    }
+
+    .section h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--purple-800);
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 2px solid var(--purple-100);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--gray-800);
+      margin: 1.25rem 0 0.6rem;
+    }
+
+    .section p {
+      color: var(--gray-700);
+      margin-bottom: 0.85rem;
+    }
+
+    .section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .section li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.55rem;
+      color: var(--gray-700);
+    }
+
+    .section li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 7px;
+      height: 7px;
+      background: var(--purple-500);
+      border-radius: 50%;
+    }
+
+    /* Apply button */
+    .apply-section {
+      text-align: center;
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(126, 34, 206, 0.35);
+    }
+
+    .apply-section p {
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.25rem;
+      font-size: 1.05rem;
+    }
+
+    .apply-btn {
+      display: inline-block;
+      background: white;
+      color: var(--purple-800);
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 0.95rem 2.75rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      letter-spacing: 0.02em;
+    }
+
+    .apply-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      background: var(--purple-50);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: var(--purple-600);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Floating WhatsApp button */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: #25D366;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45);
+      transition: all 0.25s ease;
+      max-width: 320px;
+      line-height: 1.3;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(37, 211, 102, 0.55);
+      background: #20bd5a;
+    }
+
+    .whatsapp-float svg {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-float span {
+      display: block;
+    }
+
+    /* Ad notice popup */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .popup-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .popup-box {
+      background: white;
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem 1.75rem 1.75rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      position: relative;
+      text-align: center;
+      border: 1px solid var(--purple-100);
+      animation: popupIn 0.3s ease;
+    }
+
+    @keyframes popupIn {
+      from {
+        opacity: 0;
+        transform: scale(0.92) translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: var(--purple-50);
+      color: var(--purple-700);
+      border-radius: 50%;
+      font-size: 1.25rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+
+    .popup-close:hover {
+      background: var(--purple-200);
+      color: var(--purple-900);
+    }
+
+    .popup-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--purple-100), var(--purple-200));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+      color: var(--purple-700);
+    }
+
+    .popup-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .popup-box h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.65rem;
+    }
+
+    .popup-box p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
+    }
+
+    .popup-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.75rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 4px 14px rgba(126, 34, 206, 0.3);
+    }
+
+    .popup-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 18px rgba(126, 34, 206, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .job-title {
+        font-size: 1.5rem;
+      }
+      .section, .job-header {
+        padding: 1.35rem 1.25rem;
+      }
+      .header-tag {
+        display: none;
+      }
+      .whatsapp-float {
+        bottom: 18px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        justify-content: center;
+        font-size: 0.85rem;
+        padding: 0.8rem 1rem;
+      }
+      .popup-box {
+        padding: 1.75rem 1.35rem 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ad notice popup -->
+  <div class="popup-overlay" id="adPopup" role="dialog" aria-modal="true" aria-labelledby="popupTitle">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+      <div class="popup-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        </svg>
+      </div>
+      <h2 id="popupTitle">This site contains ads</h2>
+      <p>We show ads to keep OpenJob free and help you get daily remote job updates at no cost.</p>
+      <button class="popup-btn" id="popupGotIt">Got it</button>
+    </div>
+  </div>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo" style="text-decoration:none;color:white;">OpenJob</a>
+      <div class="header-tag">
+        <a href="jobs.html" style="color:rgba(255,255,255,0.9);text-decoration:none;font-weight:500;">← All Jobs</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Job Header -->
+    <div class="job-header">
+      <div class="company-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        Descript
+      </div>
+      <h1 class="job-title">Content Strategist</h1>
+      <div class="job-meta">
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Anywhere in the World
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          Full-Time
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+          Sales and Marketing
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Posted 4 days ago · Apply before Sep 6th, 2026
+        </span>
+      </div>
+      <div class="salary-box">
+        <div class="salary-label">Base Salary Range</div>
+        <div class="salary-value">$130,000 – $165,000</div>
+      </div>
+    </div>
+
+    <!-- About the Role -->
+    <div class="section">
+      <h2>About the Role</h2>
+      <p>Content is one of Descript's most powerful channels—but only when it's strategic, original, and built to reach the right audiences. Up to this point, our content program has been focused on generating awareness amongst individual creators and small businesses. As we move upmarket, we need someone who is deeply experienced with content creation as an integral part of a brand-building, demand-generating machine.</p>
+      <p>We're looking for a Content Strategist to build the engine: a system rooted in subject matter expertise and user data that produces compelling content across formats, optimizes for AI discovery, and supports both brand and demand. Being a great writer is the baseline, and this person knows what great content looks and sounds like. We believe original, human-developed content is a genuine differentiator when it’s backed by strategy and data. You'll bring both the vision and the do-er energy to make it real.</p>
+    </div>
+
+    <!-- What You'll Do -->
+    <div class="section">
+      <h2>What You'll Do</h2>
+      
+      <h3>Strategy & Planning</h3>
+      <ul>
+        <li>Define Descript's content strategy, editorial calendar, and channel prioritization</li>
+        <li>Identify content gaps and opportunities through user data, search research, and market insight</li>
+        <li>Build a measurement framework that connects content activity to brand and pipeline outcomes</li>
+      </ul>
+
+      <h3>Content Systems & Production</h3>
+      <ul>
+        <li>Build an AI-native content production system that enables quality output at scale without sacrificing originality</li>
+        <li>Produce and/or commission content across formats: articles, research reports, data studies, interactive tools, video scripts, and more</li>
+        <li>Optimize for AI discovery as the content and search landscape evolves</li>
+      </ul>
+
+      <h3>Demand Enablement</h3>
+      <ul>
+        <li>Partner with Demand Gen, PMM, and Field Marketing to develop assets that support pipeline programs</li>
+        <li>Assist with mid- and bottom-funnel content (case studies, ROI calculators, competitive guides) that converts interest into action</li>
+      </ul>
+
+      <h3>Brand & Voice</h3>
+      <ul>
+        <li>Help define and evolve Descript's editorial voice across content channels</li>
+        <li>Develop a subject matter expertise content program, drawing on Descript employees and customers as sources</li>
+      </ul>
+    </div>
+
+    <!-- What You Bring -->
+    <div class="section">
+      <h2>What You Bring</h2>
+      
+      <h3>Minimum Qualifications</h3>
+      <ul>
+        <li>5+ years of content strategy, content marketing, or social media experience in a B2B or B2B/B2C hybrid environment</li>
+        <li>Deep familiarity with the new media landscape and how content distribution has evolved</li>
+        <li>Comfortable with AI tooling as a production and workflow aid</li>
+        <li>Analytical experience: you can build and own a content measurement framework</li>
+        <li>Portfolio showing strategic content work—evidence of content systems and measurable outcomes, not just production volume</li>
+      </ul>
+
+      <h3>Preferred Qualifications</h3>
+      <ul>
+        <li>Experience at a PLG or product-led company</li>
+        <li>Background in media, creative tools, or video/audio adjacent categories</li>
+        <li>Experience building content programs that optimize for AI discovery</li>
+      </ul>
+    </div>
+
+    <!-- Success In This Role -->
+    <div class="section">
+      <h2>Success In This Role</h2>
+      <p>Within your first 12 months, you will:</p>
+      <ul>
+        <li>Deliver a documented content strategy with channel prioritization, audience segmentation, and measurement framework</li>
+        <li>Launch an AI-native content engine with defined production workflows, tooling, and editorial standards</li>
+        <li>Ship a flagship demand-enabling asset (e.g., original research report or interactive tool)</li>
+        <li>Show measurable improvement in content's contribution to brand reach and pipeline</li>
+      </ul>
+      <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--gray-600);">The base salary range for this role is $130,000 - $165,000. Final offer amounts will carefully consider multiple factors, including prior experience, expertise, location, level, and may vary from the amount above.</p>
+    </div>
+
+    <!-- About Descript -->
+    <div class="section">
+      <h2>About Descript</h2>
+      <p>Descript is building a simple, intuitive, fully-powered editing tool for video and audio — an editing tool built for the age of AI. We are a team of 150 and the backing of some of the world's greatest investors (OpenAI, Andreessen Horowitz, Redpoint Ventures, Spark Capital).</p>
+      <p>Descript is the special company that's in possession of both product market fit and the raw materials (passionate user community, great product, large market) for growth, but is still early enough that each new employee has a measurable influence on the direction of the company.</p>
+      <p>Benefits include a generous healthcare package, 401k matching program, catered lunches, and flexible vacation time. Headquarters are located in the Mission District of San Francisco, CA. They're hiring for a mix of remote roles and hybrid roles. For those who are remote, there are a handful of opportunities throughout the year for in-person collaboration.</p>
+      <p>Descript is an equal opportunity workplace—dedicated to equal employment opportunities regardless of race, color, ancestry, religion, sex, national origin, sexual orientation, age, citizenship, marital status, disability, gender identity, or Veteran status.</p>
+    </div>
+
+    <!-- Apply CTA -->
+    <div class="apply-section">
+      <p>Ready to help shape Descript’s content engine?</p>
+      <a href="https://weworkremotely.com/remote-jobs/descript-content-strategist" class="apply-btn" target="_blank" rel="noopener noreferrer">
+        APPLY HERE
+      </a>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 OpenJob · Job details sourced from <a href="https://weworkremotely.com/remote-jobs/descript-content-strategist" target="_blank" rel="noopener noreferrer">We Work Remotely</a></p>
+  </footer>
+
+  <!-- Floating WhatsApp Channel Button -->
+  <a href="https://www.whatsapp.com/channel/0029Vb8BEz5CsU9ROKaRYF0U" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer"
+     aria-label="Join our WhatsApp channel for daily job updates">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Join our WhatsApp channel for more job updates everyday</span>
+  </a>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('adPopup');
+      var closeBtn = document.getElementById('popupClose');
+      var gotItBtn = document.getElementById('popupGotIt');
+
+      function closePopup() {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      // Show popup on load
+      document.body.style.overflow = 'hidden';
+
+      closeBtn.addEventListener('click', closePopup);
+      gotItBtn.addEventListener('click', closePopup);
+
+      // Close when clicking outside the box
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closePopup();
+      });
+
+      // Close with Escape key
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+          closePopup();
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
