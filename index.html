@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OpenJob – Remote Jobs, Opportunities & Updates</title>
+  <meta name="description" content="Find remote jobs, career opportunities, scholarships and global updates. Fresh listings every day on OpenJob.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-50: #faf5ff;
+      --purple-100: #f3e8ff;
+      --purple-200: #e9d5ff;
+      --purple-300: #d8b4fe;
+      --purple-400: #c084fc;
+      --purple-500: #a855f7;
+      --purple-600: #9333ea;
+      --purple-700: #7e22ce;
+      --purple-800: #6b21a8;
+      --purple-900: #581c87;
+      --gray-50: #f9fafb;
+      --gray-100: #f3f4f6;
+      --gray-200: #e5e7eb;
+      --gray-500: #6b7280;
+      --gray-600: #4b5563;
+      --gray-700: #374151;
+      --gray-800: #1f2937;
+      --gray-900: #111827;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, var(--purple-50) 0%, #ffffff 45%, var(--purple-50) 100%);
+      color: var(--gray-800);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.25);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      text-decoration: none;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.25rem;
+      align-items: center;
+    }
+
+    nav a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover { color: white; }
+
+    .nav-cta {
+      background: white;
+      color: var(--purple-800) !important;
+      padding: 0.45rem 1.1rem;
+      border-radius: 999px;
+      font-weight: 600;
+    }
+
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3.5rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--gray-600);
+      max-width: 560px;
+      margin: 0 auto 1.75rem;
+    }
+
+    .search-box {
+      max-width: 560px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      background: white;
+      border-radius: 999px;
+      box-shadow: 0 8px 30px rgba(147, 51, 234, 0.12);
+      border: 1px solid var(--purple-100);
+      overflow: hidden;
+    }
+
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 1rem 1.4rem;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+
+    .search-box button {
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white;
+      border: none;
+      padding: 0 1.6rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .search-box button:hover { opacity: 0.92; }
+
+    /* Scroll buttons under search */
+    .scroll-btns {
+      display: flex;
+      gap: 0.85rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 1.75rem;
+    }
+
+    .scroll-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: white;
+      border: 2px solid var(--purple-300);
+      color: var(--purple-800);
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .scroll-btn:hover {
+      background: var(--purple-50);
+      border-color: var(--purple-500);
+      transform: translateY(-2px);
+    }
+
+    .scroll-btn.web3 {
+      border-color: #10b981;
+      color: #047857;
+    }
+
+    .scroll-btn.web3:hover {
+      background: #ecfdf5;
+      border-color: #059669;
+    }
+
+    .categories {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      justify-content: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .cat-pill {
+      background: white;
+      border: 1px solid var(--purple-200);
+      color: var(--purple-800);
+      padding: 0.35rem 0.9rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .cat-pill:hover {
+      background: var(--purple-100);
+      border-color: var(--purple-300);
+    }
+
+    .section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 3rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1.35rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--gray-900);
+    }
+
+    .section-header a {
+      color: var(--purple-700);
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+    }
+
+    .section-header a:hover { text-decoration: underline; }
+
+    .jobs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .job-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.35rem 1.4rem;
+      border: 1px solid var(--purple-100);
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.06);
+      transition: all 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .job-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 28px rgba(147, 51, 234, 0.12);
+      border-color: var(--purple-200);
+    }
+
+    .job-card .company {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--purple-700);
+      margin-bottom: 0.3rem;
+    }
+
+    .job-card h3 {
+      font-size: 1.08rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+
+    .job-card .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.9rem;
+      font-size: 0.82rem;
+      color: var(--gray-500);
+      margin-bottom: 0.7rem;
+    }
+
+    .job-card .salary {
+      font-weight: 600;
+      color: var(--purple-800);
+      font-size: 0.92rem;
+    }
+
+    .job-card .tag {
+      display: inline-block;
+      background: var(--purple-50);
+      color: var(--purple-700);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 0.18rem 0.55rem;
+      border-radius: 6px;
+      margin-right: 0.25rem;
+    }
+
+    .web3-tag {
+      background: #ecfdf5 !important;
+      color: #047857 !important;
+    }
+
+    .view-all-wrap {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    .view-all-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(147, 51, 234, 0.25);
+    }
+
+    .view-all-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(147, 51, 234, 0.35);
+    }
+
+    .view-all-btn.web3 {
+      background: linear-gradient(135deg, #059669, #047857);
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.25);
+    }
+
+    .view-all-btn.web3:hover {
+      box-shadow: 0 8px 22px rgba(5, 150, 105, 0.35);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .feature-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      border: 1px solid var(--purple-100);
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.05);
+    }
+
+    .feature-card .icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(135deg, var(--purple-100), var(--purple-200));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.9rem;
+      font-size: 1.25rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      color: var(--gray-900);
+    }
+
+    .feature-card p {
+      font-size: 0.88rem;
+      color: var(--gray-600);
+      margin-bottom: 0.8rem;
+    }
+
+    .feature-card a {
+      color: var(--purple-700);
+      font-weight: 600;
+      font-size: 0.88rem;
+      text-decoration: none;
+    }
+
+    .feature-card a:hover { text-decoration: underline; }
+
+    .cta-banner {
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-900));
+      border-radius: 20px;
+      padding: 2.25rem 1.75rem;
+      text-align: center;
+      color: white;
+      max-width: 1100px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-banner h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-banner p {
+      opacity: 0.9;
+      margin-bottom: 1.25rem;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      font-size: 0.95rem;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: white;
+      color: var(--purple-800);
+      font-weight: 700;
+      padding: 0.75rem 1.8rem;
+      border-radius: 999px;
+      text-decoration: none;
+      transition: transform 0.2s;
+      margin: 0.3rem;
+    }
+
+    .cta-btn:hover { transform: translateY(-2px); }
+
+    .cta-btn.tg {
+      background: #0088cc;
+      color: white;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      color: var(--gray-500);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--purple-100);
+    }
+
+    /* Social channels floating button */
+    .social-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 999;
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white;
+      font-weight: 600;
+      font-size: 0.88rem;
+      padding: 0.85rem 1.2rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 6px 24px rgba(147, 51, 234, 0.4);
+      transition: all 0.25s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      max-width: 280px;
+      line-height: 1.3;
+    }
+
+    .social-float:hover {
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(147, 51, 234, 0.5);
+    }
+
+    /* Social modal */
+    .social-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .social-overlay.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .social-box {
+      background: white;
+      border-radius: 18px;
+      max-width: 380px;
+      width: 100%;
+      padding: 2rem 1.6rem 1.6rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+      text-align: center;
+      border: 1px solid var(--purple-100);
+      position: relative;
+      transform: scale(0.94) translateY(10px);
+      transition: transform 0.25s ease;
+    }
+
+    .social-overlay.show .social-box {
+      transform: scale(1) translateY(0);
+    }
+
+    .social-box h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.4rem;
+    }
+
+    .social-box p {
+      color: var(--gray-600);
+      font-size: 0.9rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .social-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .social-opt {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.85rem 1rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .social-opt.wa {
+      background: #25D366;
+      color: white;
+    }
+
+    .social-opt.wa:hover { background: #20bd5a; transform: translateY(-2px); }
+
+    .social-opt.tg {
+      background: #0088cc;
+      color: white;
+    }
+
+    .social-opt.tg:hover { background: #0077b5; transform: translateY(-2px); }
+
+    .social-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 30px;
+      height: 30px;
+      border: none;
+      background: var(--purple-50);
+      color: var(--purple-700);
+      border-radius: 50%;
+      font-size: 1.2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-close:hover { background: var(--purple-200); }
+
+    /* Ad popup */
+    .popup-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(17, 24, 39, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 2000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .popup-overlay.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .popup-box {
+      background: white;
+      border-radius: 18px;
+      max-width: 420px;
+      width: 100%;
+      padding: 2rem 1.75rem 1.75rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+      position: relative;
+      text-align: center;
+      border: 1px solid var(--purple-100);
+      animation: popupIn 0.3s ease;
+    }
+
+    @keyframes popupIn {
+      from { opacity: 0; transform: scale(0.92) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .popup-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: var(--purple-50);
+      color: var(--purple-700);
+      border-radius: 50%;
+      font-size: 1.25rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .popup-close:hover { background: var(--purple-200); }
+
+    .popup-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--purple-100), var(--purple-200));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.1rem;
+      color: var(--purple-700);
+    }
+
+    .popup-box h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--gray-900);
+      margin-bottom: 0.65rem;
+    }
+
+    .popup-box p {
+      color: var(--gray-600);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .popup-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.7rem 1.75rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+    }
+
+    @media (max-width: 700px) {
+      .hero h1 { font-size: 1.85rem; }
+      nav { gap: 0.8rem; }
+      .nav-hide { display: none; }
+      .social-float {
+        bottom: 18px;
+        right: 16px;
+        left: 16px;
+        max-width: none;
+        justify-content: center;
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Ad notice popup -->
+  <div class="popup-overlay" id="adPopup" role="dialog" aria-modal="true">
+    <div class="popup-box">
+      <button class="popup-close" id="popupClose" aria-label="Close">&times;</button>
+      <div class="popup-icon">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <h2>This site contains ads</h2>
+      <p>We show ads to keep OpenJob free and help you get daily remote job updates at no cost.</p>
+      <button class="popup-btn" id="popupGotIt">Got it</button>
+    </div>
+  </div>
+
+  <!-- Social channels modal -->
+  <div class="social-overlay" id="socialModal">
+    <div class="social-box">
+      <button class="social-close" id="socialClose" aria-label="Close">&times;</button>
+      <h3>Join our channels</h3>
+      <p>Get daily job & opportunity updates free</p>
+      <div class="social-options">
+        <a href="https://www.whatsapp.com/channel/0029Vb8BEz5CsU9ROKaRYF0U" class="social-opt wa" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Channel
+        </a>
+        <a href="https://t.me/OpenJobTG" class="social-opt tg" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.788.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 7.998-3.014 1.958-.438 3.748-.662 4.429-.692z"/></svg>
+          Telegram Channel
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">OpenJob</a>
+      <nav>
+        <a href="jobs.html" class="nav-hide">Jobs</a>
+        <a href="web3-jobs.html" class="nav-hide">Web3</a>
+        <a href="jobs.html" class="nav-cta">Explore Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Find Remote Jobs & <span>Opportunities</span> Worldwide</h1>
+    <p>Daily updates on remote jobs, scholarships, career opportunities and global news — all in one place.</p>
+
+    <form class="search-box" action="jobs.html" method="get">
+      <input type="text" name="q" placeholder="Search jobs, e.g. Content, Developer, Marketing..." required>
+      <button type="submit">Search</button>
+    </form>
+
+    <!-- Scroll to section buttons -->
+    <div class="scroll-btns">
+      <a href="#remote-jobs" class="scroll-btn">Remote Jobs</a>
+      <a href="#web3-jobs" class="scroll-btn web3">Web3 Jobs</a>
+    </div>
+
+    <div class="categories">
+      <a href="jobs.html?q=content" class="cat-pill">Content</a>
+      <a href="jobs.html?q=developer" class="cat-pill">Developer</a>
+      <a href="jobs.html?q=marketing" class="cat-pill">Marketing</a>
+      <a href="jobs.html?q=design" class="cat-pill">Design</a>
+      <a href="web3-jobs.html" class="cat-pill">Web3</a>
+      <a href="jobs.html" class="cat-pill">All Jobs →</a>
+    </div>
+  </section>
+
+  <!-- Remote Jobs Section -->
+  <section class="section" id="remote-jobs">
+    <div class="section-header">
+      <h2>Remote Jobs</h2>
+      <a href="jobs.html">View all →</a>
+    </div>
+
+    <div class="jobs-grid">
+      <a href="descript-content-strategist.html" class="job-card">
+        <div class="company">Descript</div>
+        <h3>Content Strategist</h3>
+        <div class="meta">
+          <span>🌍 Anywhere</span>
+          <span>Full-time</span>
+        </div>
+        <div class="salary">$130,000 – $165,000</div>
+        <div style="margin-top:0.65rem">
+          <span class="tag">Content</span>
+          <span class="tag">Remote</span>
+        </div>
+      </a>
+
+      <div class="job-card" style="opacity:0.65; pointer-events:none;">
+        <div class="company">Coming soon</div>
+        <h3>More remote jobs being added...</h3>
+        <div class="meta">
+          <span>Check back daily</span>
+        </div>
+        <div style="margin-top:0.65rem">
+          <span class="tag">New</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="view-all-wrap">
+      <a href="jobs.html" class="view-all-btn">View All Remote Jobs</a>
+    </div>
+  </section>
+
+  <!-- Web3 Jobs Section -->
+  <section class="section" id="web3-jobs">
+    <div class="section-header">
+      <h2>Web3 Jobs</h2>
+      <a href="web3-jobs.html">View all →</a>
+    </div>
+    <div class="jobs-grid">
+      <a href="web3-solflare-content-manager.html" class="job-card">
+        <div class="company">Solflare</div>
+        <h3>Content Manager</h3>
+        <div class="meta">
+          <span>🌍 Remote</span>
+          <span>Full-time</span>
+        </div>
+        <div style="margin-top:0.65rem">
+          <span class="tag web3-tag">Web3</span>
+          <span class="tag">Content</span>
+          <span class="tag">Solana</span>
+        </div>
+      </a>
+      <a href="web3-bananazone-community-manager.html" class="job-card">
+        <div class="company">BananaZone</div>
+        <h3>Community Manager</h3>
+        <div class="meta">
+          <span>🌍 Remote</span>
+          <span>USDC</span>
+        </div>
+        <div style="margin-top:0.65rem">
+          <span class="tag web3-tag">Web3</span>
+          <span class="tag">Community</span>
+        </div>
+      </a>
+      <a href="web3-letsexchange-community.html" class="job-card">
+        <div class="company">LetsExchange</div>
+        <h3>Community & Social Media Manager</h3>
+        <div class="meta">
+          <span>🌍 Remote</span>
+          <span>Full-time</span>
+        </div>
+        <div style="margin-top:0.65rem">
+          <span class="tag web3-tag">Web3</span>
+          <span class="tag">Social</span>
+        </div>
+      </a>
+      <a href="web3-intraverse-growth.html" class="job-card">
+        <div class="company">Intraverse</div>
+        <h3>Growth & Community Manager</h3>
+        <div class="meta">
+          <span>🌍 Remote</span>
+          <span>Full-time</span>
+        </div>
+        <div style="margin-top:0.65rem">
+          <span class="tag web3-tag">Web3</span>
+          <span class="tag">Growth</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="view-all-wrap">
+      <a href="web3-jobs.html" class="view-all-btn web3">View All Web3 Jobs</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <h2>Opportunities & Updates</h2>
+    </div>
+
+    <div class="features">
+      <div class="feature-card">
+        <div class="icon">💼</div>
+        <h3>Remote Jobs</h3>
+        <p>Curated remote roles from top companies around the world. Updated regularly.</p>
+        <a href="jobs.html">Browse jobs →</a>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🌐</div>
+        <h3>Web3 Jobs</h3>
+        <p>Community, design, developer, ambassador and more opportunities in crypto & blockchain.</p>
+        <a href="web3-jobs.html">Browse Web3 →</a>
+      </div>
+
+      <div class="feature-card">
+        <div class="icon">🌍</div>
+        <h3>Global Opportunities</h3>
+        <p>Scholarships, fellowships, grants and career programs from across the globe.</p>
+        <a href="#">Coming soon →</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-banner">
+    <h2>Never miss a new opportunity</h2>
+    <p>Join our channels and get daily job & opportunity updates straight to your phone.</p>
+    <a href="https://www.whatsapp.com/channel/0029Vb8BEz5CsU9ROKaRYF0U" class="cta-btn" target="_blank" rel="noopener">WhatsApp Channel</a>
+    <a href="https://t.me/OpenJobTG" class="cta-btn tg" target="_blank" rel="noopener">Telegram Channel</a>
+  </div>
+
+  <footer>
+    <p>© 2026 OpenJob · Free remote jobs & opportunities</p>
+  </footer>
+
+  <!-- Floating social button -->
+  <button class="social-float" id="socialOpen" aria-label="Join our channels">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+    <span>Join our channels for more updates</span>
+  </button>
+
+  <script>
+    // Ad popup
+    (function () {
+      var overlay = document.getElementById('adPopup');
+      var closeBtn = document.getElementById('popupClose');
+      var gotItBtn = document.getElementById('popupGotIt');
+
+      function closePopup() {
+        overlay.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+
+      document.body.style.overflow = 'hidden';
+      closeBtn.addEventListener('click', closePopup);
+      gotItBtn.addEventListener('click', closePopup);
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) closePopup();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closePopup();
+      });
+    })();
+
+    // Social modal
+    (function () {
+      var modal = document.getElementById('socialModal');
+      var openBtn = document.getElementById('socialOpen');
+      var closeBtn = document.getElementById('socialClose');
+
+      openBtn.addEventListener('click', function () {
+        modal.classList.add('show');
+      });
+
+      closeBtn.addEventListener('click', function () {
+        modal.classList.remove('show');
+      });
+
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) modal.classList.remove('show');
+      });
+    })();
+
+    // Smooth scroll for section buttons
+    document.querySelectorAll('.scroll-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        var target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
+
+  <!-- PropellerAds -->
+  <script>(function(s){s.dataset.zone='11555618',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(s){s.dataset.zone='11556352',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script src="https://5gvci.com/act/files/tag.min.js?z=11556358" data-cfasync="false" async></script>
+  <script>(function(s){s.dataset.zone='11555641',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</body>
+</html>
