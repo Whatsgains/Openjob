@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web3 Jobs – OpenJob</title>
+  <meta name="description" content="Latest Web3, crypto and blockchain jobs. Community, design, developer, ambassador and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-50: #faf5ff; --purple-100: #f3e8ff; --purple-200: #e9d5ff;
+      --purple-300: #d8b4fe; --purple-400: #c084fc; --purple-500: #a855f7;
+      --purple-600: #9333ea; --purple-700: #7e22ce; --purple-800: #6b21a8;
+      --purple-900: #581c87;
+      --gray-50: #f9fafb; --gray-100: #f3f4f6; --gray-200: #e5e7eb;
+      --gray-500: #6b7280; --gray-600: #4b5563; --gray-700: #374151;
+      --gray-800: #1f2937; --gray-900: #111827;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: linear-gradient(160deg, var(--purple-50) 0%, #ffffff 45%, var(--purple-50) 100%);
+      color: var(--gray-800); line-height: 1.6; min-height: 100vh;
+    }
+    header {
+      background: linear-gradient(135deg, var(--purple-700), var(--purple-900));
+      color: white; padding: 1rem 0; position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 4px 20px rgba(126, 34, 206, 0.25);
+    }
+    .header-inner {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; text-decoration: none; color: white; }
+    nav a { color: rgba(255,255,255,0.9); text-decoration: none; font-weight: 500; font-size: 0.95rem; margin-left: 1.25rem; }
+    nav a:hover { color: white; }
+    .nav-cta {
+      background: white; color: var(--purple-800) !important;
+      padding: 0.4rem 1rem; border-radius: 999px; font-weight: 600;
+    }
+    .page-header { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 1.5rem; }
+    .page-header h1 { font-size: 1.9rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.4rem; }
+    .page-header p { color: var(--gray-600); margin-bottom: 1.25rem; }
+    .badge {
+      display: inline-block; background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white; font-size: 0.75rem; font-weight: 600; padding: 0.25rem 0.7rem;
+      border-radius: 999px; margin-bottom: 0.75rem;
+    }
+    .search-box {
+      max-width: 480px; display: flex; background: white; border-radius: 999px;
+      box-shadow: 0 4px 20px rgba(147, 51, 234, 0.1); border: 1px solid var(--purple-100); overflow: hidden;
+    }
+    .search-box input {
+      flex: 1; border: none; outline: none; padding: 0.85rem 1.3rem;
+      font-size: 0.95rem; font-family: inherit;
+    }
+    .search-box button {
+      background: linear-gradient(135deg, var(--purple-600), var(--purple-800));
+      color: white; border: none; padding: 0 1.4rem; font-weight: 600; font-size: 0.9rem; cursor: pointer;
+    }
+    .jobs-list {
+      max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 4rem;
+      display: grid; gap: 1rem;
+    }
+    .job-card {
+      background: white; border-radius: 14px; padding: 1.35rem 1.5rem;
+      border: 1px solid var(--purple-100); box-shadow: 0 4px 18px rgba(147, 51, 234, 0.06);
+      text-decoration: none; color: inherit; display: block; transition: all 0.2s;
+    }
+    .job-card:hover {
+      transform: translateY(-2px); box-shadow: 0 8px 26px rgba(147, 51, 234, 0.12);
+      border-color: var(--purple-200);
+    }
+    .job-card .top { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.35rem; }
+    .job-card .company { font-size: 0.8rem; font-weight: 600; color: var(--purple-700); }
+    .job-card .date { font-size: 0.8rem; color: var(--gray-500); white-space: nowrap; }
+    .job-card h3 { font-size: 1.15rem; font-weight: 700; color: var(--gray-900); margin-bottom: 0.4rem; }
+    .job-card .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 1rem; font-size: 0.85rem; color: var(--gray-500); margin-bottom: 0.5rem; }
+    .job-card .salary { font-weight: 600; color: var(--purple-800); font-size: 0.95rem; }
+    .tag {
+      display: inline-block; background: var(--purple-50); color: var(--purple-700);
+      font-size: 0.75rem; font-weight: 600; padding: 0.2rem 0.55rem; border-radius: 6px; margin-right: 0.3rem;
+    }
+    .web3-tag { background: #ecfdf5; color: #047857; }
+    .no-results { text-align: center; padding: 3rem 1rem; color: var(--gray-500); display: none; }
+    footer {
+      text-align: center; padding: 2rem 1.5rem; color: var(--gray-500);
+      font-size: 0.85rem; border-top: 1px solid var(--purple-100);
+    }
+    .whatsapp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 999;
+      display: flex; align-items: center; gap: 0.65rem; background: #25D366;
+      color: white; font-weight: 600; font-size: 0.9rem; padding: 0.85rem 1.25rem;
+      border-radius: 999px; text-decoration: none;
+      box-shadow: 0 6px 24px rgba(37, 211, 102, 0.45); max-width: 300px; line-height: 1.3;
+    }
+    .whatsapp-float svg { width: 22px; height: 22px; flex-shrink: 0; }
+    @media (max-width: 600px) {
+      .whatsapp-float { bottom: 18px; right: 16px; left: 16px; max-width: none; justify-content: center; font-size: 0.85rem; }
+      nav .hide-mobile { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <a href="index.html" class="logo">OpenJob</a>
+      <nav>
+        <a href="index.html" class="hide-mobile">Home</a>
+        <a href="jobs.html" class="hide-mobile">All Jobs</a>
+        <a href="web3-jobs.html" class="nav-cta">Web3 Jobs</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="page-header">
+    <div class="badge">Web3 / Crypto / Blockchain</div>
+    <h1>Web3 Jobs</h1>
+    <p>Community, design, developer, ambassador, moderator and more. Newest first.</p>
+    <form class="search-box" id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search Web3 jobs..." autocomplete="off">
+      <button type="submit">Search</button>
+    </form>
+  </div>
+
+  <div class="jobs-list" id="jobsList">
+
+    <!-- BananaZone Community Manager -->
+    <a href="web3-bananazone-community-manager.html" class="job-card" data-keywords="community manager bananazone solana web3 telegram discord">
+      <div class="top">
+        <div class="company">BananaZone</div>
+        <div class="date">Aug 11, 2026</div>
+      </div>
+      <h3>Community Manager</h3>
+      <div class="meta">
+        <span>🌍 Remote</span>
+        <span>Paid in USDC</span>
+      </div>
+      <div class="tags" style="margin-top:0.5rem">
+        <span class="tag web3-tag">Web3</span>
+        <span class="tag">Community</span>
+        <span class="tag">Solana</span>
+      </div>
+    </a>
+
+    <!-- Solflare Content Manager -->
+    <a href="web3-solflare-content-manager.html" class="job-card" data-keywords="content manager solflare solana writing social media crypto twitter">
+      <div class="top">
+        <div class="company">Solflare</div>
+        <div class="date">Aug 8, 2026</div>
+      </div>
+      <h3>Content Manager</h3>
+      <div class="meta">
+        <span>🌍 Remote</span>
+        <span>Full-time</span>
+      </div>
+      <div class="tags" style="margin-top:0.5rem">
+        <span class="tag web3-tag">Web3</span>
+        <span class="tag">Content</span>
+        <span class="tag">Solana</span>
+      </div>
+    </a>
+
+    <!-- LetsExchange Community & Social -->
+    <a href="web3-letsexchange-community.html" class="job-card" data-keywords="community manager social media letsexchange telegram reddit linkedin">
+      <div class="top">
+        <div class="company">LetsExchange</div>
+        <div class="date">Aug 6, 2026</div>
+      </div>
+      <h3>Community Manager & Social Media Manager</h3>
+      <div class="meta">
+        <span>🌍 Remote</span>
+        <span>Full-time</span>
+      </div>
+      <div class="tags" style="margin-top:0.5rem">
+        <span class="tag web3-tag">Web3</span>
+        <span class="tag">Community</span>
+        <span class="tag">Social Media</span>
+      </div>
+    </a>
+
+    <!-- Intraverse Growth & Community -->
+    <a href="web3-intraverse-growth.html" class="job-card" data-keywords="growth community manager intraverse discord partnership">
+      <div class="top">
+        <div class="company">Intraverse</div>
+        <div class="date">Aug 7, 2026</div>
+      </div>
+      <h3>Growth & Community Manager</h3>
+      <div class="meta">
+        <span>🌍 Remote</span>
+        <span>Full-time</span>
+      </div>
+      <div class="tags" style="margin-top:0.5rem">
+        <span class="tag web3-tag">Web3</span>
+        <span class="tag">Growth</span>
+        <span class="tag">Community</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="no-results" id="noResults">
+    <p>No Web3 jobs found matching your search.</p>
+    <p style="margin-top:0.5rem;font-size:0.9rem;"><a href="web3-jobs.html" style="color:var(--purple-700)">View all Web3 jobs</a></p>
+  </div>
+
+  <footer>
+    <p>© 2026 OpenJob · Free remote & Web3 jobs</p>
+  </footer>
+
+  <!-- Web3 Channel button (placeholder - replace with your real link) -->
+    <!-- Social channels modal -->
+  <div id="socialModal" style="position:fixed;inset:0;background:rgba(17,24,39,0.65);backdrop-filter:blur(4px);z-index:2500;display:flex;align-items:center;justify-content:center;padding:1.25rem;opacity:0;visibility:hidden;transition:all 0.25s;">
+    <div style="background:white;border-radius:18px;max-width:380px;width:100%;padding:2rem 1.6rem 1.6rem;text-align:center;position:relative;border:1px solid #f3e8ff;">
+      <button id="socialClose" style="position:absolute;top:12px;right:14px;width:30px;height:30px;border:none;background:#faf5ff;color:#7e22ce;border-radius:50%;font-size:1.2rem;cursor:pointer;">&times;</button>
+      <h3 style="font-size:1.15rem;font-weight:700;margin-bottom:0.4rem;">Join our channels</h3>
+      <p style="color:#4b5563;font-size:0.9rem;margin-bottom:1.4rem;">Get daily job & opportunity updates free</p>
+      <div style="display:flex;flex-direction:column;gap:0.7rem;">
+        <a href="https://www.whatsapp.com/channel/0029Vb8BEz5CsU9ROKaRYF0U" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;padding:0.85rem 1rem;border-radius:12px;font-weight:600;text-decoration:none;background:#25D366;color:white;">WhatsApp Channel</a>
+        <a href="https://t.me/OpenJobTG" target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;padding:0.85rem 1rem;border-radius:12px;font-weight:600;text-decoration:none;background:#0088cc;color:white;">Telegram Channel</a>
+      </div>
+    </div>
+  </div>
+  <button id="socialOpen" style="position:fixed;bottom:28px;right:28px;z-index:999;background:linear-gradient(135deg,#9333ea,#6b21a8);color:white;font-weight:600;font-size:0.88rem;padding:0.85rem 1.2rem;border-radius:999px;border:none;cursor:pointer;box-shadow:0 6px 24px rgba(147,51,234,0.4);max-width:280px;">Join our channels for more updates</button>
+  <script>
+    (function(){
+      var m=document.getElementById('socialModal'),o=document.getElementById('socialOpen'),c=document.getElementById('socialClose');
+      if(!m||!o)return;
+      o.onclick=function(){m.style.opacity='1';m.style.visibility='visible'};
+      if(c)c.onclick=function(){m.style.opacity='0';m.style.visibility='hidden'};
+      m.onclick=function(e){if(e.target===m){m.style.opacity='0';m.style.visibility='hidden'}};
+    })();
+  </script>
+
+  <script>
+    (function () {
+      var input = document.getElementById('searchInput');
+      var form = document.getElementById('searchForm');
+      var cards = document.querySelectorAll('.job-card');
+      var noResults = document.getElementById('noResults');
+      var jobsList = document.getElementById('jobsList');
+
+      function filterJobs(query) {
+        query = (query || '').toLowerCase();
+        var visible = 0;
+        cards.forEach(function (card) {
+          var text = ((card.getAttribute('data-keywords') || '') + ' ' + card.innerText).toLowerCase();
+          if (!query || text.indexOf(query) !== -1) {
+            card.style.display = 'block'; visible++;
+          } else {
+            card.style.display = 'none';
+          }
+        });
+        noResults.style.display = visible === 0 ? 'block' : 'none';
+        jobsList.style.display = visible === 0 ? 'none' : 'grid';
+      }
+
+      form.addEventListener('submit', function (e) { e.preventDefault(); filterJobs(input.value.trim()); });
+      input.addEventListener('input', function () { filterJobs(input.value.trim()); });
+    })();
+  </script>
+
+  <!-- PropellerAds -->
+  <script>(function(s){s.dataset.zone='11555618',s.src='https://al5sm.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script>(function(s){s.dataset.zone='11556352',s.src='https://n6wxm.com/vignette.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+  <script src="https://5gvci.com/act/files/tag.min.js?z=11556358" data-cfasync="false" async></script>
+  <script>(function(s){s.dataset.zone='11555641',s.src='https://nap5k.com/tag.min.js'})([document.documentElement, document.body].filter(Boolean).pop().appendChild(document.createElement('script')))</script>
+</body>
+</html>
